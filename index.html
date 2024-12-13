@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Signin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 360px;
+        }
+
+        .tab {
+            display: flex;
+            justify-content: space-around;
+            background: #4CAF50;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .tab div {
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab div.active {
+            background: #45a049;
+            font-weight: bold;
+        }
+
+        .form {
+            padding: 20px;
+            display: none;
+        }
+
+        .form.active {
+            display: block;
+        }
+
+        .form h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="tab">
+        <div id="signup-tab" class="active">Signup</div>
+        <div id="signin-tab">Signin</div>
+    </div>
+    <div id="signup-form" class="form active">
+        <h2>Signup</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button>Signup</button>
+    </div>
+    <div id="signin-form" class="form">
+        <h2>Signin</h2>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button>Signin</button>
+    </div>
+</div>
+
+<script>
+    const signupTab = document.getElementById('signup-tab');
+    const signinTab = document.getElementById('signin-tab');
+    const signupForm = document.getElementById('signup-form');
+    const signinForm = document.getElementById('signin-form');
+
+    signupTab.addEventListener('click', () => {
+        signupTab.classList.add('active');
+        signinTab.classList.remove('active');
+        signupForm.classList.add('active');
+        signinForm.classList.remove('active');
+    });
+
+    signinTab.addEventListener('click', () => {
+        signinTab.classList.add('active');
+        signupTab.classList.remove('active');
+        signinForm.classList.add('active');
+        signupForm.classList.remove('active');
+    });
+</script>
+
+</body>
+</html>
